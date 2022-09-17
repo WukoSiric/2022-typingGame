@@ -37,7 +37,7 @@
         align-items: center;
         min-height: 100vh;
         background-color: #3b2a27;
-        min-width: 80vw;
+        min-width: 100vw;
     }
 
     ul {
