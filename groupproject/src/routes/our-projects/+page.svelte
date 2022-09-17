@@ -163,11 +163,11 @@ function alternate_desc() {
     }
 
     .cards-container:hover>.card-wrapper:not(:hover) .card-background {
-        filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+        filter: brightness(0.5) contrast(1.4) blur(30px);
     }
 
     .cards-container:hover>.card-wrapper:not(:hover) .description-content {
-        filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+        filter: brightness(0.5) contrast(1.4) blur(30px);
     }
 
     .card-content {
