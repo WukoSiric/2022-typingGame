@@ -1,32 +1,43 @@
 <script lang='ts'>
 
+import Nav from '../../lib/navbar.svelte';
+
 let resources = [
     {
         link: 'https://kit.svelte.dev/', 
-        styling: 'background-image: url(https://miro.medium.com/max/1000/1*joB4ddC9_-3okvy0r8_CPQ.png); background-color: #ff3c00', 
-        name: 'Introduction to SvelteKit', 
+        styling: 'background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);', 
+        name: 'Typing Trainer', 
+        description: 'A typing trainer that tests your keyboard accuracy and speed.'
+    },
+
+    {
+        link: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model', 
+        styling: 'background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);', 
+        name: 'Placeholder', 
         description: 'Lorem Ipsum'
     },
 
     {
         link: 'https://kit.svelte.dev/', 
-        styling: 'background-image: url(https://miro.medium.com/max/1000/1*joB4ddC9_-3okvy0r8_CPQ.png); background-color: #ff3c00', 
-        name: 'Introduction to SvelteKit', 
+        styling: 'background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);', 
+        name: 'Placeholder', 
         description: 'Lorem Ipsum'
     },
 
     {
         link: 'https://kit.svelte.dev/', 
-        styling: 'background-image: url(https://miro.medium.com/max/1000/1*joB4ddC9_-3okvy0r8_CPQ.png); background-color: #ff3c00', 
-        name: 'Introduction to SvelteKit', 
+        styling: 'background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);', 
+        name: 'Placeholder', 
         description: 'Lorem Ipsum'
     }
 ];
 
 </script>
 
-<title>Svelte Materials</title>
-    <div class="page">
+<title>Our Projects</title>
+
+<div class="page">
+    <Nav/>
     <div class="cards-container">
         {#each resources as resource}
         <div class="card-wrapper">
@@ -50,31 +61,39 @@ let resources = [
     * {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
+    
     .page {
         padding: 30px;
-        background: rgb(2,0,36);
-        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(53,51,80,1) 39%, rgba(157,156,170,1) 93%, rgba(197,197,205,1) 100%, rgba(220,220,225,1) 100%, rgba(255,255,255,1) 100%);
+        background-image: linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% );
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
     .cards-container {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
+        align-items: center;
+        min-width: 100%;
     }
 
     .card-wrapper {
         flex: 1;
         display: flex;
-        margin: auto;
-        gap: 40px;
-        width: 95%;
+        margin-top: auto;
+        margin-bottom: auto;
+        gap: 30px;
+        width: 90%;
+        max-height: 256px;
         
     }
 
     .card {
         position: relative;
-        padding: 5%;
+        padding: 2%;
         background-size: contain;
         flex: 1.5;
         text-decoration: none;
@@ -88,12 +107,16 @@ let resources = [
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5.6px);
         -webkit-backdrop-filter: blur(5.6px);
-        padding: 15px;
+        padding: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
+        max-width: 674px;
     }
 
+    .description-content:hover {
+        cursor: default;
+    }
     .card-background {
         background-size: contain;
         background-repeat: no-repeat;
@@ -109,18 +132,16 @@ let resources = [
         transition: .2s;
     }
     
-    .card:hover .card-background {
+    .card-wrapper:hover .card-background {
         transform: scale(1.05) translateZ(0);
     }
 
-    .cards-container:hover>.card:not(:hover) .card-background {
+    .cards-container:hover>.card-wrapper:not(:hover) .card-background {
         filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
     }
 
-    @media(min-width: 960px) {
-        .cards-container {
-            grid-template-columns: repeat(2, 2fr);
-        }
+    .cards-container:hover>.card-wrapper:not(:hover) .description-content {
+        filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
     }
 
     .card-content {
@@ -148,16 +169,19 @@ let resources = [
         
     }
 
-    .border {
-        border: 5px solid #fff;
+    .description-content p {
+        font-size: 1.2vw;
     }
 
-    .cards-container:hover>.card:not(:hover) p {
+    .border {
+        border: 5px solid #fff;
+        padding: 10px;
+    }
+
+    .cards-container:hover>.card-wrapper:not(:hover) p {
         opacity: 0;
     }
 
-    .card:hover p {
-        opacity: 100;
-    }
+
 
 </style>
