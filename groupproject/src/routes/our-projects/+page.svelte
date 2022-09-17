@@ -26,29 +26,55 @@ let resources = [
 
     {
         link: 'https://kit.svelte.dev/', 
-        styling: 'background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);', 
+        styling: 'background-image: linear-gradient( 135deg, #81FFEF 10%, #F067B4 100%);', 
         name: 'Placeholder', 
         description: 'Lorem Ipsum'
     }
 ];
+
+let cardNum = 2;
+
+function alternate_card () {
+    if (cardNum == 1) {
+        cardNum = 2;
+    } else {
+        cardNum = 1;
+    }
+
+    return cardNum;
+}
+
+let descNum = 1;
+
+function alternate_desc() {
+    if (descNum == 1) {
+        descNum = 2;
+    } else {
+        descNum = 1;
+    }
+
+    return descNum;
+}
 
 </script>
 
 <title>Our Projects</title>
 
 <div class="page">
-    <Nav/>
+    <div class="nav">
+        <Nav/>
+    </div>
     <div class="cards-container">
         {#each resources as resource}
         <div class="card-wrapper">
-            <a href="{resource.link}" target="_blank" class="card">
+            <a href="{resource.link}" target="_blank" class="card" style="order: {alternate_card()}">
                 <div class="card-background" style="{resource.styling}"></div>
                 <div class="card-content">
                     <p class="border">{resource.name}</p>
                 </div>
             </a>
             
-            <div class="description-content">
+            <div class="description-content" style="order: {alternate_desc()}">
                 <p>{resource.description}</p>
             </div>
         </div>
@@ -61,7 +87,7 @@ let resources = [
     * {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-    
+
     .page {
         padding: 30px;
         background-image: linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% );
@@ -77,7 +103,7 @@ let resources = [
         flex-direction: column;
         gap: 20px;
         align-items: center;
-        min-width: 100%;
+        min-width: 80%;
     }
 
     .card-wrapper {

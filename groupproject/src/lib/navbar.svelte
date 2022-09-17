@@ -60,14 +60,14 @@
 
     ul li a {
         position: relative;
-        font-size: 5em;
+        font-size: 3.5em;
         font-weight: bold;
         text-decoration: none;
         line-height: 1em;
         letter-spacing: 2px;
         text-transform: uppercase;
         color: transparent;
-        -webkit-text-stroke: 1px rgba(225, 225, 225, 0.5);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
     }
 
     ul li a::before {
