@@ -39,6 +39,8 @@
     /* GAME FUNCTIONS */
     function new_game() {
         letter_index = 0; 
+        score = 0;
+        accuracy = 0;
         game_finished = false;
         generateLetters();
     }
