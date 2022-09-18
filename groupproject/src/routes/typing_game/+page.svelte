@@ -1,10 +1,20 @@
 <script lang="ts">
-    import * as timer from './Stopwatch.svelte';
+	// import test from "@playwright/test";
+	// import { get_all_dirty_from_scope } from "svelte/internal";
+	// import type { Timer } from "./typing_functions/timer";
+
+    let index: number = 0;
     let letter_sequence: string;
+    let user_input: string; //Input binds into this
     const sequence_length = 20;
 
-    let score: number = 0; 
+    $: score = 0; 
     let round_time: number = 3000;
+
+    function start_game() {
+        let index: number = 0; 
+        generateLetters();
+    }
 
     function generateLetters() {
         let new_sequence: string = ''; 
@@ -14,41 +24,38 @@
             new_sequence += possible_chars.charAt(Math.floor(Math.random() * chars_length));
         }
         letter_sequence = new_sequence;
-
-
         console.log(letter_sequence);
     }
 
+    function is_correct_letter(letter: string, index: number): boolean {
+        // index will be provided by each block
+        if (letter === letter_sequence[index] ) {
+            return true;
+        }
+        return false;
+    }
+
+    // Will be called for on:keydown={handle_input}
+    function handle_input(letter: string): void {
+        // Only updating the score
+        // Need to add handling time!
+        if (is_correct_letter(letter, index)) {
+            score++; 
+        }
+        console.log(score);
+        index++;
+    }
+
+    setTimeout(driver, 1000);
+
+    function driver() {
+        letter_sequence = 'abcdef';
+        handle_input('a');
+        handle_input('b');
+        handle_input('c');
+        handle_input('a');
+        handle_input('b');
+        handle_input('c');
+    }
     generateLetters();
-
-    // TIMING STUFF 
-    // Times
-    let total_ms: number = 0;
-
-    // Pause Functionality
-    let start_time: number = Date.now();
-    let timer_state: any; 
-
-    function get_time() {
-        return total_ms;
-    }
-
-    function start_timing() {
-        start_time = Date.now();
-        timer_state = setInterval(increment_timer, 50);
-    }
-
-    function increment_timer() {
-        let current_time = Date.now() - start_time;
-        total_ms = Math.floor(current_time);
-    }
-
-    function stop_timing() {
-        clearInterval(timer_state);
-    }
-
-    function reset_timer() {
-        total_ms = 0;
-        stop_timing();
-    }
-</script>
+</script>   
