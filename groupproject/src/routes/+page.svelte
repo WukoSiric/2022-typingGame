@@ -14,8 +14,8 @@
 
 let sidebarItemsinitial = [
     {color: 'f7650a', href: 'youtube.com', data: '&nbsp;Home&nbsp;', text: '&nbsp;Home&nbsp;', rgb: {r:0,g:0,b:0}},
-    {color: 'ff6493', href: 'youtube.com', data: '&nbsp;About&nbsp;', text: '&nbsp;About&nbsp;', rgb: {r:0,g:0,b:0}},
-    {color: '0ef70a', href: 'youtube.com', data: '&nbsp;Our&nbsp;Projects&nbsp;', text: '&nbsp;Our&nbsp;Projects&nbsp;', rgb: {r:0,g:0,b:0}},
+    {color: 'ff6493', href: 'about-us', data: '&nbsp;About&nbsp;', text: '&nbsp;About&nbsp;', rgb: {r:0,g:0,b:0}},
+    {color: '0ef70a', href: 'our-projects', data: '&nbsp;Our&nbsp;Projects&nbsp;', text: '&nbsp;Our&nbsp;Projects&nbsp;', rgb: {r:0,g:0,b:0}},
     {color: 'eb170a', href: 'youtube.com', data: '&nbsp;Hire&nbsp;Us&nbsp;', text: '&nbsp;Hire&nbsp;Us&nbsp;', rgb: {r:0,g:0,b:0}}
 ];
 

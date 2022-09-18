@@ -4,7 +4,7 @@ import Nav from '../../lib/navbar.svelte';
 
 let resources = [
     {
-        link: 'https://kit.svelte.dev/', 
+        link: '/typing-game', 
         styling: 'background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);', 
         name: 'Typing Trainer', 
         description: 'A typing trainer that tests your keyboard accuracy and speed.'
