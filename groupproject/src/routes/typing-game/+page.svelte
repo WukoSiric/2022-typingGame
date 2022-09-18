@@ -1,15 +1,17 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    
+    import * as timer from './timer';
+
     let index: number;
     const sequence_length = 20;
     let letter_sequence: string; //Show current letter for user to type with letter_sequence[index]
     let user_input: string; //Input binds into this with keydow
     let game_won: boolean;
 
+    // Scoring
     $: score = 0; //Display this to user
-    let all_scores: number[];
 
+    // Timing
     let round_time: number = 3000;
 
     function new_game() {
