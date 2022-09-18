@@ -2,12 +2,14 @@
     import { onMount } from 'svelte';
     
     let index: number;
+    const sequence_length = 20;
     let letter_sequence: string; //Show current letter for user to type with letter_sequence[index]
     let user_input: string; //Input binds into this with keydow
     let game_won: boolean;
-    const sequence_length = 20;
 
     $: score = 0; //Display this to user
+    let all_scores: number[];
+
     let round_time: number = 3000;
 
     function new_game() {
@@ -27,18 +29,16 @@
         letter_sequence = new_sequence;
     }
 
-    // Will be called when doing input -> on:keydown={handle_input}
+    // Will be called when doing input ----> on:keydown={handle_input}
     function handle_input(letter: string): void {
         // Doesnt account for time yet
         if (is_correct_letter(letter, index)) {
             score++; 
         }
-        console.log(score);
         index++;
     }
 
     function is_correct_letter(letter: string, index: number): boolean {
-        // index will be provided by each block
         if (letter === letter_sequence[index] ) {
             return true;
         }
@@ -48,4 +48,5 @@
     onMount(() => {
         new_game();
     });
+
 </script>   
