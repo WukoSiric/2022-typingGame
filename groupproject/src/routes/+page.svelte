@@ -36,7 +36,7 @@ let sidebarItems = sidebarItemsinitial.map(item => {
         </div> -->
         {#each sidebarItems as item}
             <li style="--clr:#{item.color}">
-                <a href="{item.href}" data-text="{item.data}">{@html {item.text}}</a>
+                <!-- <a href="{item.href}" data-text="{item.data}">{@html {item.text}}</a> -->
             </li>
         {/each}
     </ul>
