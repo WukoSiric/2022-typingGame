@@ -46,7 +46,7 @@
     function new_game() {
         letter_index = 0; 
         score = 0;
-        accuracy = "";
+        accuracy = "N/A";
         game_finished = false;
         generateLetters();
         reset_timer();
@@ -122,11 +122,14 @@
     <div class="gameWrapper">
         <div class="infoWrapper">
             <div class="difficulty">
-                {change_difficulty}
+                Difficulty
             </div>
 
             <div class="gameStats">
+                <div class="timer">
                 Time Lapsed: {time}
+                </div>
+
                 High Score: {high_score}
                 Score: {score}
                 Accuracy: {accuracy}
@@ -150,6 +153,8 @@
 * {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
+    font-size: 1.02em;
+    font-weight: 500;
 }
 
 .page {
@@ -163,6 +168,27 @@
     min-height: 100vh;
 }
 
+.timer {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  31px 31px 61px #656565,
+                -31px -31px 61px #a9a9a9;
+    
+    min-width: 10vw;
+    min-height: 4vw;
+}
+.difficulty {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  31px 31px 61px #656565,
+                -31px -31px 61px #a9a9a9;
+    
+    display: flex;
+    min-width: 8vw;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+}
 .gameWindow {
     border-radius: 75px;
     background: linear-gradient(145deg, #7a7a7a, #909090);
