@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { npm_config_engine_strict } from './../../../.svelte-kit/ambient.d.ts';
     import { onMount } from 'svelte';
 
     // Letters
@@ -118,25 +119,93 @@
     });
 
 </script>   
+<div class="page">
+    <div class="infoWrapper">
+        <div class="gameStats">
+            Time Lapsed: {time}
+            High Score: PLACEHOLDER
+            Score: {score}
+            Accuracy: {accuracy}
+        </div>
 
-<div class="gameWindow">
-    {letter_sequence[letter_index]}
+        <div class="gameWindow">
+            <div class="letter">
+                {letter_sequence[letter_index]}
+            </div>
+        </div>
+    </div>
+
+    <button on:click={() => new_game()}>New Game</button>
+
+    <input on:keydown={handle_input} bind:value={input}>
 </div>
-
-<div class="gameStats">
-    score: {score}
-    accuracy: {accuracy}
-</div>
-
-<button on:click={() => new_game()}>New Game</button>
-
-<input on:keydown={handle_input} bind:value={input}>
-
 <style>
+
 * {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
 }
 
+.page {
+    background-color: #878787;
+    padding: 30px;  
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
 
+.gameWindow {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  31px 31px 61px #656565,
+                -31px -31px 61px #a9a9a9;
+
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40vw;
+    min-height: 40vh;
+    font-size: 15em;
+    font-weight: 700;
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameStats {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  31px 31px 61px #656565,
+                -31px -31px 61px #a9a9a9;
+
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 674px;
+}
+
+.infoWrapper {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  31px 31px 61px #656565,
+                -31px -31px 61px #a9a9a9;
+    border: 0px;
+    min-width: 10vw;
+    min-height: 7vh;
+}
 </style>
