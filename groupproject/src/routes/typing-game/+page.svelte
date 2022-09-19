@@ -24,7 +24,7 @@
     /*TIMING STUFF*/ 
     let round_time: number = 3000;
     let time: number = 0; //Display this 
-    let start_time: number = Date.now()
+    let start_time: number = Date.now();
     let timer_state: number; 
 
     function start_timing() {
@@ -123,17 +123,11 @@
         start_timing();
     });
 
-    let code;
-
-    function handleKeydown(event) {
-        code = event.code;
-
+    function handleKeydown(event: KeyboardEvent) {
         if (event.code == "Enter") {
             new_game();
         }
     }
-
-
 </script>  
 
 <svelte:window on:keydown={handleKeydown}/>
