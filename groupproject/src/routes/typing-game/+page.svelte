@@ -17,7 +17,7 @@
     // Scoring
     let game_finished: boolean;
     $: score = 0; //Display this to user
-    let high_score: number;
+    $: high_score = 0;
     $: score > high_score ? high_score = score : high_score = high_score; 
     $: accuracy = "N/A"; 
 
