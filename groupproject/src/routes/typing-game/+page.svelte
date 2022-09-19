@@ -10,6 +10,7 @@
     // For display
     let input: string = "";
     $: input.length >= 2 ? input = input[1] : input = input;
+    let difficulty: string = "easy";
 
     // Scoring
     let game_finished: boolean;
@@ -100,7 +101,9 @@
         accuracy = ((score/max_score) * 100).toFixed(2); 
     }
 
-    function change_difficulty(difficulty: string) {
+    function change_difficulty(new_difficulty: string) {
+        difficulty = new_difficulty;
+
         if (difficulty === "easy") {
             round_time = 3000;
         } else if (difficulty === "medium") {
