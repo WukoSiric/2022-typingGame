@@ -1,4 +1,7 @@
 <script lang="ts">
+
+    import Nav from '../../lib/navbar.svelte';
+
     import { onMount } from 'svelte';
 
     // Letters
@@ -122,37 +125,66 @@
 
 </script>   
 <div class="page">
-    <div class="gameWrapper">
 
-        <div class="timer">
-            Time Lapsed: {time}
-        </div>
+    <Nav/>
 
-        <div class="infoWrapper">
-            <div class="difficulty">
+    <div class="game">
+
+        <div class="levelSelector">
+            <button class="difficulty">
                 Difficulty: {difficulty}
-            </div>
+            </button>
 
-
-
-            <div class="gameStats">
-                High Score: {high_score}
-                Score: {score}
-                Accuracy: {accuracy}
+            <div class="levels">
+                <button class="diff" on:click={() => change_difficulty("easy")}>Easy</button>
+                <button class="diff" on:click={() => change_difficulty("medium")}>Medium</button>
+                <button class="diff" on:click={() => change_difficulty("hard")}>Hard</button>
+                <button class="diff" on:click={() => change_difficulty("master")}>Master</button>
             </div>
         </div>
 
-            <div class="gameWindow">
-                <div class="letter">
-                    {letter_sequence[letter_index]}
-                </div>
+        <div class="gameWrapper">
+            <div class="timer">
+                {#if (game_finished == true)}
+                Time Lapsed (ms): 0
+                {:else}
+                Time Lapsed (ms): {time}
+                {/if}
             </div>
+
+            <div class="center">
+                <div class="gameWindow">
+                    <div class="letter">
+                        {#if (game_finished == true)}
+                        end 
+                        {:else}
+                        {letter_sequence[letter_index]}
+                        {/if}
+                    </div>
+                </div>
+
+                <button class="type1" on:click={() => new_game()}>New Game</button>
+
+                <input on:keydown={handle_input} bind:value={input} autofocus>
+            </div>
+        </div>
+
+        <div class="gameStats">
+            <div class="stat">
+            High Score: {high_score}
+            </div>
+
+            <div class="stat">
+            Score: {score}
+            </div>
+
+            <div class="stat">
+            Accuracy: {accuracy}
+            </div>
+        </div>
 
     </div>
 
-    <button on:click={() => new_game()}>New Game</button>
-
-    <input on:keydown={handle_input} bind:value={input}>
 </div>
 <style>
 
@@ -161,15 +193,30 @@
     box-sizing: border-box;
     font-size: 1.02em;
     font-weight: 500;
+    text-transform: uppercase;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.game {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .page {
     background-color: #878787;
-    padding: 30px;  
+    padding: 40px;  
     display: flex;
     flex-direction: column; 
     align-items: center;
-    justify-content: center;
     gap: 30px;
     min-height: 100vh;
 }
@@ -187,18 +234,37 @@
     justify-content: center;
     width: 100%;
 }
-.difficulty {
+
+.levelSelector {
     border-radius: 75px;
     background: linear-gradient(145deg, #7a7a7a, #909090);
     box-shadow:  31px 31px 61px #656565,
                 -31px -31px 61px #a9a9a9;
     
     display: flex;
-    min-width: 8vw;
-    padding: 30px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 13vw;
 }
+
+.levels {
+    display: none;
+    position: relative;
+    z-index: 1;
+    border-radius: none;
+    box-shadow: none;
+}
+
+.levelSelector:hover .levels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: none;
+    box-shadow: none;
+}
+
 .gameWindow {
     border-radius: 75px;
     background: linear-gradient(145deg, #7a7a7a, #909090);
@@ -211,14 +277,14 @@
     justify-content: center;
     min-width: 40vw;
     min-height: 40vh;
-    font-size: 15em;
+    font-size: 16em;
     font-weight: 700;
 }
 
 .letter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 .gameStats {
@@ -227,11 +293,11 @@
     box-shadow:  31px 31px 61px #656565,
                 -31px -31px 61px #a9a9a9;
 
-    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 674px;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 .gameWrapper {
@@ -242,14 +308,11 @@
     align-items: center;
 }
 
-.infoWrapper {
-    gap: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.gameStats, .difficulty {
+    min-width: 14vw;
+    padding: 30px;
 }
-
-button {
+.type1, .difficulty {
     border-radius: 75px;
     background: linear-gradient(145deg, #7a7a7a, #909090);
     box-shadow:  31px 31px 61px #656565,
@@ -257,13 +320,18 @@ button {
     border: 0px;
     min-width: 10vw;
     min-height: 7vh;
+    cursor: pointer;
 }
 
-button:hover, .difficulty:hover {
+.type1:hover, .difficulty:hover {
     border-radius: 75px;
     background: linear-gradient(145deg, #7a7a7a, #909090);
     box-shadow:  5px 5px 10px #656565,
                 -5px -5px 10px #a9a9a9;
+}
+
+.difficulty {
+    min-width: 16vw;
 }
 
 input {
@@ -284,5 +352,20 @@ input {
 input:active {
     border: none;
     outline: none;
+}
+
+.diff {
+    border-radius: none;
+    box-shadow: none;
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 20px;
+}
+
+.diff:hover {
+    opacity: 30%;
+    cursor: pointer;
 }
 </style>
