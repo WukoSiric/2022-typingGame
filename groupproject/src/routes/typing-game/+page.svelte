@@ -46,7 +46,7 @@
     function new_game() {
         letter_index = 0; 
         score = 0;
-        accuracy = "";
+        accuracy = "N/A";
         game_finished = false;
         generateLetters();
         reset_timer();
