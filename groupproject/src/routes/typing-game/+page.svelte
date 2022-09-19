@@ -171,7 +171,11 @@
 
         <div class="gameStats">
             <div class="stat">
-            High Score: {high_score}
+                {#if (high_score == 0)}
+                High Score: 0
+                {:else}
+                High Score: {high_score}
+                {/if}
             </div>
 
             <div class="stat">
