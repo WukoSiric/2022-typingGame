@@ -123,7 +123,8 @@
         start_timing();
     });
 
-</script>   
+</script>  
+
 <div class="page">
 
     <Nav/>
@@ -156,7 +157,7 @@
                 <div class="gameWindow">
                     <div class="letter">
                         {#if (game_finished == true)}
-                        end 
+                        end<small>Click 'New Game' Or Press 'Enter'</small>
                         {:else}
                         {letter_sequence[letter_index]}
                         {/if}
@@ -165,7 +166,7 @@
 
                 <button class="type1" on:click={() => new_game()}>New Game</button>
 
-                <input on:keydown={handle_input} bind:value={input} autofocus>
+                <input on:keydown={handle_input} bind:value={input} autofocus on:submit={() => new_game()}>
             </div>
         </div>
 
@@ -200,6 +201,9 @@
     text-transform: uppercase;
 }
 
+small {
+    font-size: 0.2em;
+}
 .center {
     display: flex;
     align-items: center;
@@ -289,6 +293,9 @@
     width: 100%;
     height: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: .3em;
 }
 
 .gameStats {
@@ -325,6 +332,10 @@
     min-width: 10vw;
     min-height: 7vh;
     cursor: pointer;
+}
+
+.type1 {
+    padding: 20px;
 }
 
 .type1:hover, .difficulty:hover {
