@@ -90,12 +90,8 @@ function alternate_desc() {
 
     .page {
         padding: 30px;
-        /* background-image: linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% ); */
-        /* background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);   */
-        background-image: linear-gradient(to right, #434343 0%, black 100%);
-        /* background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%); */
-        /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
-        /* background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%); */
+        background-image: linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% );
+        /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
         height: 100%;
         display: flex;
         flex-direction: column;
