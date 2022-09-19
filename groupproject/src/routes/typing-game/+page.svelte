@@ -13,7 +13,9 @@
     // Scoring
     let game_finished: boolean;
     $: score = 0; //Display this to user
-    $: accuracy = ""; 
+    let high_score: number;
+    $: score > high_score ? high_score = score : high_score = high_score; 
+    $: accuracy = "N/A"; 
 
     /*TIMING STUFF*/ 
     let round_time: number = 3000;
@@ -47,6 +49,8 @@
         accuracy = "";
         game_finished = false;
         generateLetters();
+        reset_timer();
+        start_timing();
     }
 
     function generateLetters() {
