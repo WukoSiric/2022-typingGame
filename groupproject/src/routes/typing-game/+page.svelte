@@ -123,16 +123,19 @@
 </script>   
 <div class="page">
     <div class="gameWrapper">
+
+        <div class="timer">
+            Time Lapsed: {time}
+        </div>
+
         <div class="infoWrapper">
             <div class="difficulty">
-                Difficulty
+                Difficulty: {difficulty}
             </div>
 
-            <div class="gameStats">
-                <div class="timer">
-                Time Lapsed: {time}
-                </div>
 
+
+            <div class="gameStats">
                 High Score: {high_score}
                 Score: {score}
                 Accuracy: {accuracy}
@@ -179,6 +182,10 @@
     
     min-width: 10vw;
     min-height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 .difficulty {
     border-radius: 75px;
@@ -250,5 +257,32 @@ button {
     border: 0px;
     min-width: 10vw;
     min-height: 7vh;
+}
+
+button:hover, .difficulty:hover {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  5px 5px 10px #656565,
+                -5px -5px 10px #a9a9a9;
+}
+
+input {
+    border-radius: 75px;
+    background: linear-gradient(145deg, #7a7a7a, #909090);
+    box-shadow:  31px 31px 61px #656565,
+                -31px -31px 61px #a9a9a9;
+                
+    border: none;
+    outline: none;    
+    min-height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+input:active {
+    border: none;
+    outline: none;
 }
 </style>
