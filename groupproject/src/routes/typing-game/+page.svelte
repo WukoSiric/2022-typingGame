@@ -3,8 +3,8 @@
 
     // Letters
     const sequence_length = 20;
-    let letter_sequence: string; //Show current letter for user to type with letter_sequence[letter_index]
-    let letter_index: number;
+    let letter_sequence: string = ""; //Show current letter for user to type with letter_sequence[letter_index]
+    let letter_index: number = 0;
 
     // For display
     let input: string = "";
@@ -93,6 +93,19 @@
     function update_accuracy() {
         let max_score = sequence_length * 10;
         accuracy = ((score/max_score) * 100).toFixed(2); 
+    }
+
+    function change_difficulty(difficulty: string) {
+        if (difficulty === "easy") {
+            round_time = 3000;
+        } else if (difficulty === "medium") {
+            round_time = 2000;
+        } else if (difficulty === "hard") {
+            round_time = 1000; 
+        } else if (difficulty === "master") {
+            round_time = 500;
+        }
+        new_game();
     }
 
     onMount(() => {

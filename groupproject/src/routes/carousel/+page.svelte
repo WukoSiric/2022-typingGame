@@ -1,6 +1,7 @@
 <script lang="ts">
 
     import {fade} from 'svelte/transition';
+    import { onMount } from 'svelte';
 
     let images: string[] = [
         'https://tinyurl.com/imgof1yifan',
@@ -26,6 +27,10 @@
 
         return count;
     }
+
+    onMount(() => {
+        setInterval(next, 2000);
+    });
 
 </script>
 
