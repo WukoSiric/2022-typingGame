@@ -133,6 +133,13 @@
         }
     }
 
+    let color: string;
+
+    $: if (time >= 3000) {
+        color = "#a53131";
+    } else {
+        color = "linear-gradient(145deg, #7a7a7a, #909090)";
+    }
 
 </script>  
 
@@ -167,7 +174,7 @@
             </div>
 
             <div class="center">
-                <div class="gameWindow">
+                <div class="gameWindow" style="background: {color}">
                     <div class="letter">
                         {#if (game_finished == true)}
                         end<small>Click 'New Game' Or Press 'Enter'</small>
@@ -179,7 +186,7 @@
 
                 <button class="type1" on:click={() => new_game()}>New Game</button>
 
-                <input on:keydown={handle_input} bind:value={input} autofocus>
+                <input on:keydown={handle_input} bind:value={input} autofocus/>
             </div>
         </div>
 
@@ -267,6 +274,7 @@ small {
     align-items: center;
     justify-content: center;
     min-width: 13vw;
+    transition: 1s;
 }
 
 .levels {
@@ -275,6 +283,8 @@ small {
     z-index: 1;
     border-radius: none;
     box-shadow: none;
+    transition: 1s;
+
 }
 
 .levelSelector:hover .levels {
@@ -284,11 +294,12 @@ small {
     justify-content: center;
     border-radius: none;
     box-shadow: none;
+    transition: 1s;
+
 }
 
 .gameWindow {
     border-radius: 75px;
-    background: linear-gradient(145deg, #7a7a7a, #909090);
     box-shadow:  31px 31px 61px #656565,
                 -31px -31px 61px #a9a9a9;
 
@@ -300,6 +311,7 @@ small {
     min-height: 40vh;
     font-size: 16em;
     font-weight: 700;
+    transition: 3s;
 }
 
 .letter {
@@ -345,6 +357,7 @@ small {
     min-width: 10vw;
     min-height: 7vh;
     cursor: pointer;
+    transition: 1s;
 }
 
 .type1 {
