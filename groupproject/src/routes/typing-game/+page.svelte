@@ -13,7 +13,7 @@
     // Scoring
     let game_finished: boolean;
     $: score = 0; //Display this to user
-    $: accuracy = 0; 
+    $: accuracy = ""; 
 
     /*TIMING STUFF*/ 
     let round_time: number = 3000;
@@ -44,7 +44,7 @@
     function new_game() {
         letter_index = 0; 
         score = 0;
-        accuracy = 0;
+        accuracy = "";
         game_finished = false;
         generateLetters();
     }
@@ -92,7 +92,7 @@
 
     function update_accuracy() {
         let max_score = sequence_length * 10;
-        accuracy = (score/max_score) * 100; 
+        accuracy = ((score/max_score) * 100).toFixed(2); 
     }
 
     onMount(() => {
