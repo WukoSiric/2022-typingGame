@@ -8,19 +8,19 @@
 <div class="container">
     <ul>
         <li style="--clr:#fff">
-            <a href="youtube.com" data-text="&nbsp;Home&nbsp;">&nbsp;Home&nbsp</a>
+            <a href="/home" data-text="&nbsp;Home&nbsp;">&nbsp;Home&nbsp</a>
         </li>
 
         <li style="--clr:#fff">
-            <a href="youtube.com" data-text="&nbsp;About&nbsp;Us&nbsp;">&nbsp;About&nbsp;Us&nbsp</a>
+            <a href="/about-us" data-text="&nbsp;About&nbsp;Us&nbsp;">&nbsp;About&nbsp;Us&nbsp</a>
         </li>
 
         <li style="--clr:#fff">
-            <a href="youtube.com" data-text="&nbsp;Projects&nbsp;">&nbsp;Projects&nbsp</a>
+            <a href="/our-projects" data-text="&nbsp;Projects&nbsp;">&nbsp;Projects&nbsp</a>
         </li>
 
         <li style="--clr:#fff">
-            <a href="youtube.com" data-text="&nbsp;Hire&nbsp;Us&nbsp;">&nbsp;Hire&nbsp;Us&nbsp</a>
+            <a href="/hire-us" data-text="&nbsp;Hire&nbsp;Us&nbsp;">&nbsp;Hire&nbsp;Us&nbsp</a>
         </li>
     </ul>
 </div>
