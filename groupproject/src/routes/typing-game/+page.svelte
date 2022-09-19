@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { npm_config_engine_strict } from './../../../.svelte-kit/ambient.d.ts';
     import { onMount } from 'svelte';
 
     // Letters
@@ -120,19 +119,26 @@
 
 </script>   
 <div class="page">
-    <div class="infoWrapper">
-        <div class="gameStats">
-            Time Lapsed: {time}
-            High Score: PLACEHOLDER
-            Score: {score}
-            Accuracy: {accuracy}
-        </div>
+    <div class="gameWrapper">
+        <div class="infoWrapper">
+            <div class="difficulty">
+                {change_difficulty}
+            </div>
 
-        <div class="gameWindow">
-            <div class="letter">
-                {letter_sequence[letter_index]}
+            <div class="gameStats">
+                Time Lapsed: {time}
+                High Score: {high_score}
+                Score: {score}
+                Accuracy: {accuracy}
             </div>
         </div>
+
+            <div class="gameWindow">
+                <div class="letter">
+                    {letter_sequence[letter_index]}
+                </div>
+            </div>
+
     </div>
 
     <button on:click={() => new_game()}>New Game</button>
@@ -154,6 +160,7 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
+    min-height: 100vh;
 }
 
 .gameWindow {
@@ -191,10 +198,17 @@
     max-width: 674px;
 }
 
-.infoWrapper {
+.gameWrapper {
     gap: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoWrapper {
+    gap: 40px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
