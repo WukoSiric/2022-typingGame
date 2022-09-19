@@ -114,3 +114,25 @@
     });
 
 </script>   
+
+<div class="gameWindow">
+    {letter_sequence[letter_index]}
+</div>
+
+<div class="gameStats">
+    score: {score}
+    accuracy: {accuracy}
+</div>
+
+<button on:click={() => new_game()}>New Game</button>
+
+<input on:keydown={handle_input} bind:value={input}>
+
+<style>
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+
+</style>
