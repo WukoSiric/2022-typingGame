@@ -1,13 +1,17 @@
 <script lang="ts">
     import { onMount } from 'svelte';
 
-    let letter_index: number;
+    // Letters
     const sequence_length = 20;
     let letter_sequence: string; //Show current letter for user to type with letter_sequence[letter_index]
+    let letter_index: number;
 
-    let game_finished: boolean;
-    
+    // For display
+    let input: string = "";
+    $: input.length >= 2 ? input = input[1] : input = input;
+
     // Scoring
+    let game_finished: boolean;
     $: score = 0; //Display this to user
     $: accuracy = 0; 
 
@@ -15,7 +19,7 @@
     let round_time: number = 3000;
     let time: number = 0; //Display this 
     let start_time: number = Date.now()
-    let timer_state: number = 0; 
+    let timer_state: number; 
 
     function start_timing() {
         start_time = Date.now();
@@ -89,6 +93,10 @@
     function update_accuracy() {
         let max_score = sequence_length * 10;
         accuracy = (score/max_score) * 100; 
+    }
+
+    function testing(event: KeyboardEvent) {
+        console.log(event.key);
     }
 
     onMount(() => {
