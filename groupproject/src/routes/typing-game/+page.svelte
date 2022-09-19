@@ -95,10 +95,6 @@
         accuracy = (score/max_score) * 100; 
     }
 
-    function testing(event: KeyboardEvent) {
-        console.log(event.key);
-    }
-
     onMount(() => {
         new_game();
         start_timing();
