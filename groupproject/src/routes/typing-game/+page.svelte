@@ -123,7 +123,20 @@
         start_timing();
     });
 
+    let code;
+
+    function handleKeydown(event) {
+        code = event.code;
+
+        if (event.code == "Enter") {
+            new_game();
+        }
+    }
+
+
 </script>  
+
+<svelte:window on:keydown={handleKeydown}/>
 
 <div class="page">
 
@@ -166,7 +179,7 @@
 
                 <button class="type1" on:click={() => new_game()}>New Game</button>
 
-                <input on:keydown={handle_input} bind:value={input} autofocus on:submit={() => new_game()}>
+                <input on:keydown={handle_input} bind:value={input} autofocus>
             </div>
         </div>
 
