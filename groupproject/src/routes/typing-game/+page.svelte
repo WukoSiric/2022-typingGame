@@ -75,12 +75,18 @@
 
         if ( letter_index > sequence_length-1) {
             update_accuracy(); 
-            game_finished = true; 
+            game_finished = true;
             return;
         }
         
         reset_timer();
         start_timing();
+    }
+
+    function handle_enter(event: KeyboardEvent) {
+        if (event.code == "Enter") {
+            new_game();
+        }
     }
 
     function update_score(letter: string) {
@@ -123,23 +129,18 @@
         start_timing();
     });
 
-    function handleKeydown(event: KeyboardEvent) {
-        if (event.code == "Enter") {
-            new_game();
-        }
-    }
-
     let color: string;
-
-    $: if (time >= 3000) {
+    $: if (time >= round_time && !game_finished) {
         color = "#a53131";
+    } else if (game_finished) {
+        color = "#FFE4C4";
     } else {
         color = "linear-gradient(145deg, #7a7a7a, #909090)";
     }
 
 </script>  
 
-<svelte:window on:keydown={handleKeydown}/>
+<svelte:window on:keydown={handle_enter}/>
 
 <div class="page">
 
