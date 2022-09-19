@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { npm_config_engine_strict } from './../../../.svelte-kit/ambient.d.ts';
+	// import { npm_config_engine_strict } from './../../../.svelte-kit/ambient.d.ts';
     import { onMount } from 'svelte';
 
     // Letters
