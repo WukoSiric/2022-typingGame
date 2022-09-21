@@ -106,11 +106,11 @@ function alternate_desc() {
     .page {
         padding: 30px;
 
-        /* background: url(https://wallpaper.dog/large/20492335.png) no-repeat center center fixed; */
+        background: url(https://wallpaper.dog/large/20492335.png) no-repeat center center fixed;
         
         /* background: url(https://i.pinimg.com/originals/d0/8d/84/d08d845ce6c47edb9c97ab5860407c69.jpg) no-repeat center center fixed; */
 
-        background: url(https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/15.jpg?3) no-repeat center center fixed;
+        /* background: url(https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/15.jpg?3) no-repeat center center fixed; */
 
         /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
         height: 100%;
